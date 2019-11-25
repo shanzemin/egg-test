@@ -18,6 +18,28 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];
 
+  config.mongoose = {
+    client: {
+      url: 'mongodb://localhost/egg_db',
+      options: {
+        useNewUrlParser: true,
+        // useUnifiedTopology: true
+      }
+    },
+    loadModel: false
+  };
+
+  config.cluster = {
+    listen: {
+      port: 7654,
+      hostname: '0.0.0.0'
+    },
+  };
+
+  config.security = {
+    csrf: false
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
